@@ -1,0 +1,188 @@
+/* Fondo general de la página */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #070d11, #200120);
+  background-attachment: fixed; /* Hace que el fondo sea infinito */
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/* Contenedor para la barra de búsqueda y el ícono */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  position: fixed;
+  top: 20px; /* Espacio superior ajustado */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 60%;
+}
+
+/* Ícono dentro de la barra de búsqueda */
+.search-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background: url('https://doroshen.com/favicon.ico') no-repeat center;
+  background-size: contain;
+}
+
+/* Barra de búsqueda con estilo Glassmorphism */
+.search-bar {
+  flex-grow: 1; /* Permite que la barra de búsqueda ocupe todo el espacio restante */
+  padding: 15px 20px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: white;
+  outline: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Efecto de sombra en la barra de búsqueda al hacer scroll */
+.search-bar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo dinámico - Formas difuminadas y flotantes */
+.circle, .circle2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circle {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 105, 180, 0.4), rgba(255, 105, 180, 0.1));
+  top: 20%;
+  left: 15%;
+  animation: move 10s ease-in-out infinite;
+}
+
+.circle2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(173, 216, 230, 0.4), rgba(173, 216, 230, 0.1));
+  top: 60%;
+  left: 70%;
+  animation: move2 12s ease-in-out infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) scale(1.5);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateY(0) scale(0.7);
+  }
+  50% {
+    transform: translateY(50px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(0.7);
+}
+}
+
+/* Ajustes para las tarjetas */
+.houses-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 100px; /* Espacio para la barra de búsqueda fija */
+  padding-bottom: 20px;
+}
+
+.house-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  width: 350px;
+  min-height: 500px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Evita que las tarjetas se encojan */
+}
+
+.house-card:hover {
+  background: rgba(255, 255, 255, 0.014);
+}
+
+/* Ajuste del tamaño de las imágenes */
+.house-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón con el precio */
+.button {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 15px 0;
+  font-size: 24px;
+  color: white;
+  background-color: #ff4081;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e91e63;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
